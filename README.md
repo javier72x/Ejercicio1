@@ -1,27 +1,36 @@
-# Ejercicio1
+Manual para levantar el proyecto en local
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.8.
+Front End Angular 18
+•	1.-Descargar e Instalar Node versión estable (LTS)
 
-## Development server
+Comandos necesarios para instalar Angular
+•	npm install -g @angular/cli
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Comando para levantar local Angular 
+esta en la raíz del proyecto C:\xampp\htdocs\Ejercicio1
+•	npm install
+•	npm start
 
-## Code scaffolding
+Laravel 11
+•	1.-Descargar e instalar Composer
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Comandos para levantar en local Laravel
+Esta es la ruta del proyecto C:\xampp\htdocs\Ejercicio1\api-rest
+•	composer install
+•	php artisan serve
 
-## Build
+configuración de mysql en laravel
+en el archivo C:\xampp\htdocs\Ejercicio1\api-rest\.env
+agregar estas líneas
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1    
+DB_PORT=3306        
+DB_DATABASE=agenda 
+DB_USERNAME=root  
+DB_PASSWORD="" 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Después creas la base de datos agenda.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Migrar BD de laravel a mysql
+El siguiente comando es para migrar las tablas a la BD agenda.
+•	php artisan migrate

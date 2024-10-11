@@ -36,3 +36,11 @@
   background-color: blue;
   color: white;
 }
+
+@media(max-width: 767px){
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+  }
+}
