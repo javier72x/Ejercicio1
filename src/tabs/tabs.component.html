@@ -1,0 +1,22 @@
+<mat-card appearance="outlined" class="container-card">
+    <mat-tab-group  [(selectedIndex)]="selectedTabIndex">
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="icon">import_contacts</mat-icon> 
+                Agenda
+            </ng-template>
+            <div class="container-tab">
+                <app-list-catalog (tabChange)="onTabChange($event)"></app-list-catalog>
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="icon">add</mat-icon> 
+                Nuevo Contacto
+            </ng-template>
+            <div class="container-tab">
+              <app-form [contact]="selectedContact"></app-form>
+            </div>
+          </mat-tab>
+    </mat-tab-group>
+</mat-card>

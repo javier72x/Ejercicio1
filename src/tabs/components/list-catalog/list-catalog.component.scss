@@ -1,0 +1,23 @@
+.btn-editar{
+  margin-right: 10px;
+}
+
+.btn-csv{
+  display: flex;
+  align-items: center;
+  background-color: green;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.container-actions{
+  padding: 10px;
+}
+.color-white{
+  color: white;
+}
+@media(max-width: 1023px){
+  .btn-editar{
+    margin-bottom: 10px;
+  }
+}

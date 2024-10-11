@@ -1,0 +1,63 @@
+<button mat-stroked-button class="btn-csv" (click)="downloadCSV()">
+  <mat-icon class="color-white">download</mat-icon> 
+  <span class="color-white">
+    Descargar CSV
+  </span>
+</button>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Nombre Column -->
+  <ng-container matColumnDef="nombre">
+    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+  </ng-container>
+
+  <!-- Calle Column -->
+  <ng-container matColumnDef="calle">
+    <th mat-header-cell *matHeaderCellDef> Calle </th>
+    <td mat-cell *matCellDef="let element"> {{element.calle}} </td>
+  </ng-container>
+
+  <!-- Número Column -->
+  <ng-container matColumnDef="numero">
+    <th mat-header-cell *matHeaderCellDef> Número </th>
+    <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+  </ng-container>
+
+  <!-- Colonia Column -->
+  <ng-container matColumnDef="colonia">
+    <th mat-header-cell *matHeaderCellDef> Colonia </th>
+    <td mat-cell *matCellDef="let element"> {{element.colonia}} </td>
+  </ng-container>
+
+  <!-- Ciudad Column -->
+  <ng-container matColumnDef="ciudad">
+    <th mat-header-cell *matHeaderCellDef> Ciudad </th>
+    <td mat-cell *matCellDef="let element"> {{element.ciudad}} </td>
+  </ng-container>
+
+  <!-- Acciones Column -->
+  <ng-container matColumnDef="acciones">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let element" class="container-actions">
+      <button mat-flat-button class="btn-editar" (click)="editElement(element.id)">
+        <mat-icon>edit</mat-icon> Editar
+      </button>
+      <button mat-flat-button color="warn" (click)="deleteElement(element.id)">
+        <mat-icon>delete</mat-icon> Eliminar
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Header and Row Definitions -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[2, 10, 25, 50]" showFirstLastButtons></mat-paginator>

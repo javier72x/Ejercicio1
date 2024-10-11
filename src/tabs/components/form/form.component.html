@@ -1,0 +1,129 @@
+<form>
+    <div class="grid-container">
+        <mat-form-field class="field">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput [formControl]="nombre" maxlength="100" [errorStateMatcher]="matcher">
+                @if (nombre.hasError('required')) {
+                    <mat-error>Nombre es <strong>requerido</strong>.</mat-error>
+                }
+        </mat-form-field>
+
+        <mat-form-field class="field">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="email" maxlength="100" [errorStateMatcher]="matcher"
+            placeholder="ejemplo@example.com">
+            <mat-error *ngIf="email.hasError('pattern') && !email.hasError('required')">
+                Por favor ingrese un email válido.
+              </mat-error>
+            
+              <!-- Mensaje de error para email requerido -->
+              <mat-error *ngIf="email.hasError('required')">
+                El email es <strong>requerido</strong>.
+              </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="field">
+            <mat-label>Telefono</mat-label>
+            <input type="text" pattern="^[0-9]*$" matInput [formControl]="telefono" maxlength="10" (input)="validatePhone($event)" [errorStateMatcher]="matcher">
+                <mat-error *ngIf="telefono.hasError('required')">
+                    Teléfono es <strong>requerido</strong>.
+                </mat-error>
+                <mat-error *ngIf="telefono.hasError('minlength') || telefono.hasError('maxlength')">
+                    El telefono debe tener <strong>exactamente 10 dígitos</strong>.
+                </mat-error>
+        </mat-form-field>
+    </div>
+
+    <hr class="linea">
+
+    <div class="grid-container">
+        <mat-form-field class="field">
+            <mat-label>Numero</mat-label>
+            <input type="text" matInput [formControl]="numero" maxlength="10" (input)="validatePhone($event)" [errorStateMatcher]="matcher">
+                @if (numero.hasError('required')) {
+                    <mat-error>Numero es <strong>requerido</strong>.</mat-error>
+                }
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Calle</mat-label>
+            <input type="text" matInput [formControl]="calle" maxlength="100" [errorStateMatcher]="matcher">
+                @if (calle.hasError('required')) {
+                    <mat-error>Calle es <strong>requerido</strong>.</mat-error>
+                }
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Colonia</mat-label>
+            <input type="text" matInput [formControl]="colonia" maxlength="100" [errorStateMatcher]="matcher">
+                @if (colonia.hasError('required')) {
+                    <mat-error>Colonia es <strong>requerido</strong>.</mat-error>
+                }
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Codigo Postal</mat-label>
+            <input type="text" matInput [formControl]="codigoPostal" maxlength="5" (input)="validatePhone($event)" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="codigoPostal.hasError('pattern') && !codigoPostal.hasError('required')">
+                El Código Postal es incorrecto.
+              </mat-error>
+              <mat-error *ngIf="codigoPostal.hasError('required')">
+                El Código Postal es <strong>requerido</strong>.
+              </mat-error>
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Ciudad</mat-label>
+            <input type="text" matInput [formControl]="ciudad" maxlength="100" [errorStateMatcher]="matcher">
+                @if (ciudad.hasError('required')) {
+                    <mat-error>Ciudad es <strong>requerido</strong>.</mat-error>
+                }
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Estado</mat-label>
+            <input type="text" matInput [formControl]="estado" maxlength="100" [errorStateMatcher]="matcher">
+                @if (estado.hasError('required')) {
+                    <mat-error>Estado es <strong>requerido</strong>.</mat-error>
+                }
+        </mat-form-field>
+    </div>
+
+    <hr class="linea">
+
+    <mat-form-field class="field">
+        <mat-label>Domicilio</mat-label>
+        <input type="text" matInput [formControl]="domicilio" maxlength="250" [errorStateMatcher]="matcher" placeholder="Los Sauces 16009, Mazatlan, Sinaloa, Mexico">
+            @if (domicilio.hasError('required')) {
+                <mat-error>Domicilio es <strong>requerido</strong>.</mat-error>
+            }
+    </mat-form-field>
+
+    <button class="button button-green" mat-fab extended type="button" [disabled]="loading" (click)="cargarGPS()">
+        <mat-icon>refresh</mat-icon>
+        Cargar Datos GPS
+    </button>
+
+    <div class="grid-container">
+        <mat-form-field class="field">
+            <mat-label>Latitud</mat-label>
+            <input type="text" matInput [formControl]="latitud" [errorStateMatcher]="matcher" readonly>
+                @if (latitud.hasError('required')) {
+                    <mat-error>Latitud es <strong>requerido</strong>.</mat-error>
+                }
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Longitud</mat-label>
+            <input type="text" matInput [formControl]="longitud" [errorStateMatcher]="matcher" readonly>
+                @if (longitud.hasError('required')) {
+                    <mat-error>Longitud es <strong>requerido</strong>.</mat-error>
+                }
+        </mat-form-field>
+    </div>
+
+    <div class="buttons-container">
+        <button class="button button-red" mat-fab extended type="button" [disabled]="loading" (click)="cancel()">
+            <mat-icon>cancel</mat-icon>
+            Cancelar
+        </button>
+        <button class="button button-blue" mat-fab extended type="button" [disabled]="loading" (click)="enviarDatos()">
+            <mat-icon>save</mat-icon>
+            Guardar
+        </button>
+    </div>
+  </form>

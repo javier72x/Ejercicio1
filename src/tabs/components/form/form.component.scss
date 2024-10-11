@@ -1,0 +1,38 @@
+.field {
+  width: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.linea {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.button {
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.buttons-container {
+  gap: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-green{
+  background-color: green;
+  color: white;
+}
+.button-red{
+  background-color: red;
+  color: white;
+}
+.button-blue{
+  background-color: blue;
+  color: white;
+}
